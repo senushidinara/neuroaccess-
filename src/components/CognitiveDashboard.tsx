@@ -64,49 +64,85 @@ const CognitiveDashboard = () => {
     return <AlertCircle className="w-5 h-5 text-destructive" />;
   };
 
-  const MetricCard = ({ 
-    title, 
-    value, 
-    icon: Icon, 
-    color 
-  }: { 
-    title: string; 
-    value: number; 
-    icon: any; 
+  const colorMap: Record<string, { bg: string; text: string; gradientFrom: string; gradientTo: string }> = {
+    primary: {
+      bg: "hsl(var(--primary) / 0.1)",
+      text: "hsl(var(--primary))",
+      gradientFrom: "hsl(var(--primary))",
+      gradientTo: "hsl(var(--primary) / 0.7)"
+    },
+    success: {
+      bg: "hsl(var(--success) / 0.1)",
+      text: "hsl(var(--success))",
+      gradientFrom: "hsl(var(--success))",
+      gradientTo: "hsl(var(--success) / 0.7)"
+    },
+    warning: {
+      bg: "hsl(var(--warning) / 0.1)",
+      text: "hsl(var(--warning))",
+      gradientFrom: "hsl(var(--warning))",
+      gradientTo: "hsl(var(--warning) / 0.7)"
+    },
+    secondary: {
+      bg: "hsl(var(--secondary) / 0.1)",
+      text: "hsl(var(--secondary))",
+      gradientFrom: "hsl(var(--secondary))",
+      gradientTo: "hsl(var(--secondary) / 0.7)"
+    },
+  };
+
+  const MetricCard = ({
+    title,
+    value,
+    icon: Icon,
+    color
+  }: {
+    title: string;
+    value: number;
+    icon: any;
     color: string;
-  }) => (
-    <Card className="p-6 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all group hover:shadow-lg hover:shadow-primary/10">
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex items-center gap-3">
-          <div className={`p-3 rounded-lg bg-${color}/10 group-hover:bg-${color}/20 transition-all`}>
-            <Icon className={`w-6 h-6 text-${color}`} />
-          </div>
-          <div>
-            <p className="text-sm text-muted-foreground font-medium">{title}</p>
-            <div className="flex items-center gap-2 mt-1">
-              {getStatusIcon(value)}
+  }) => {
+    const colors = colorMap[color];
+    return (
+      <Card className="p-6 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all group hover:shadow-lg hover:shadow-primary/10">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div
+              className="p-3 rounded-lg transition-all group-hover:brightness-125"
+              style={{ backgroundColor: colors.bg }}
+            >
+              <Icon className="w-6 h-6" style={{ color: colors.text }} />
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground font-medium">{title}</p>
+              <div className="flex items-center gap-2 mt-1">
+                {getStatusIcon(value)}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div className="space-y-3">
-        <div className="flex items-end gap-2">
-          <span className={`text-4xl font-bold ${getStatusColor(value)}`}>
-            {(value * 100).toFixed(1)}%
-          </span>
-          <TrendingUp className={`w-5 h-5 mb-2 ${getStatusColor(value)}`} />
+
+        <div className="space-y-3">
+          <div className="flex items-end gap-2">
+            <span className={`text-4xl font-bold ${getStatusColor(value)}`}>
+              {(value * 100).toFixed(1)}%
+            </span>
+            <TrendingUp className={`w-5 h-5 mb-2 ${getStatusColor(value)}`} />
+          </div>
+
+          <div className="relative h-2 bg-muted rounded-full overflow-hidden">
+            <div
+              className="absolute inset-y-0 left-0 transition-all duration-300 rounded-full"
+              style={{
+                width: `${value * 100}%`,
+                background: `linear-gradient(to right, ${colors.gradientFrom}, ${colors.gradientTo})`
+              }}
+            />
+          </div>
         </div>
-        
-        <div className="relative h-2 bg-muted rounded-full overflow-hidden">
-          <div 
-            className={`absolute inset-y-0 left-0 bg-gradient-to-r from-${color} to-${color}/70 transition-all duration-300 rounded-full`}
-            style={{ width: `${value * 100}%` }}
-          />
-        </div>
-      </div>
-    </Card>
-  );
+      </Card>
+    );
+  };
 
   return (
     <section id="dashboard" className="py-20 px-4">
