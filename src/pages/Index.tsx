@@ -1,14 +1,34 @@
+import Navigation from "@/components/Navigation";
+import ScrollToTop from "@/components/ScrollToTop";
 import Hero from "@/components/Hero";
 import CognitiveDashboard from "@/components/CognitiveDashboard";
 import Features from "@/components/Features";
 import TechStack from "@/components/TechStack";
+import SessionManager from "@/components/SessionManager";
+import StudentProfiles from "@/components/StudentProfiles";
+import NotificationCenter from "@/components/NotificationCenter";
+import AdvancedAnalytics from "@/components/AdvancedAnalytics";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Hero />
-      <CognitiveDashboard />
-      <Features />
+      <Navigation />
+      <ScrollToTop />
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="dashboard">
+        <CognitiveDashboard />
+      </div>
+      <div id="features">
+        <Features />
+      </div>
+      <StudentProfiles />
+      <div id="analytics">
+        <AdvancedAnalytics />
+      </div>
+      <SessionManager />
+      <NotificationCenter />
       <TechStack />
       
       {/* Footer */}

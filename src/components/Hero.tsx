@@ -1,9 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Brain, Activity, Zap, Users } from "lucide-react";
+import heroBanner from "@/assets/hero-banner.jpg";
+import brainIcon from "@/assets/brain-icon.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Hero Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroBanner} 
+          alt="Neural network visualization" 
+          className="w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+      </div>
+      
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-glow" />
@@ -12,10 +24,17 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-8 animate-slide-up">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border">
-            <Zap className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium">AI-Powered Cognitive Equity Platform</span>
+          {/* Logo & Badge */}
+          <div className="flex flex-col items-center gap-4">
+            <img 
+              src={brainIcon} 
+              alt="NeuroAccess Brain Icon" 
+              className="w-24 h-24 animate-pulse-glow"
+            />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border">
+              <Zap className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium">AI-Powered Cognitive Equity Platform</span>
+            </div>
           </div>
 
           {/* Main heading */}
