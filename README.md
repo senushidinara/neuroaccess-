@@ -31,6 +31,36 @@ NeuroAccess is an **offline-first AI platform** that transforms low-cost EEG hea
 git clone https://github.com/senushidinara/neuroaccess-horizonhacks
 cd neuroaccess-horizonhacks#
 ```
+1. Backend Setup
+
+```bash
+cd backend
+pip install -r requirements.txt
+python main.py
+```
+
+1. Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+1. Mobile App 
+
+```bash
+cd mobile
+flutter pub get
+flutter run
+```
+🏗️ Architecture
+
+```
+User Device (Mobile/Web) ←→ Backend API ←→ AI Processing Engine
+       ↑                           ↑                  ↑
+   EEG Headset              Cognitive Models    Real-time Analytics
+```
 
 🚀 NeuroAccess GitHub Repository Structure
 
