@@ -39,7 +39,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-1. Frontend Setup
+2. Frontend Setup
 
 ```bash
 cd frontend
@@ -47,7 +47,7 @@ npm install
 npm start
 ```
 
-1. Mobile App 
+3. Mobile App 
 
 ```bash
 cd mobile
