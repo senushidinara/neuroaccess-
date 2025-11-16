@@ -2,6 +2,13 @@ import { Card } from "@/components/ui/card";
 import { Code, Database, Brain, Cpu } from "lucide-react";
 
 const TechStack = () => {
+  const colorMap: Record<string, { bg: string; text: string; dot: string }> = {
+    primary: { bg: "hsl(var(--primary) / 0.1)", text: "hsl(var(--primary))", dot: "hsl(var(--primary))" },
+    secondary: { bg: "hsl(var(--secondary) / 0.1)", text: "hsl(var(--secondary))", dot: "hsl(var(--secondary))" },
+    success: { bg: "hsl(var(--success) / 0.1)", text: "hsl(var(--success))", dot: "hsl(var(--success))" },
+    accent: { bg: "hsl(var(--accent) / 0.1)", text: "hsl(var(--accent))", dot: "hsl(var(--accent))" },
+  };
+
   const techCategories = [
     {
       icon: Code,
@@ -62,19 +69,26 @@ const TechStack = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {techCategories.map((category, index) => {
             const Icon = category.icon;
+            const colors = colorMap[category.color];
             return (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="p-6 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all"
               >
-                <div className={`w-12 h-12 rounded-lg bg-${category.color}/10 flex items-center justify-center mb-4`}>
-                  <Icon className={`w-6 h-6 text-${category.color}`} />
+                <div
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+                  style={{ backgroundColor: colors.bg }}
+                >
+                  <Icon className="w-6 h-6" style={{ color: colors.text }} />
                 </div>
                 <h3 className="text-lg font-semibold mb-4">{category.title}</h3>
                 <ul className="space-y-2">
                   {category.technologies.map((tech, i) => (
                     <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
-                      <div className={`w-1.5 h-1.5 rounded-full bg-${category.color}`} />
+                      <div
+                        className="w-1.5 h-1.5 rounded-full"
+                        style={{ backgroundColor: colors.dot }}
+                      />
                       {tech}
                     </li>
                   ))}
