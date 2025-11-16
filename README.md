@@ -29,76 +29,80 @@ NeuroAccess is an **offline-first AI platform** that transforms low-cost EEG hea
 1. **Clone the repository**
 ```bash
 git clone https://github.com/senushidinara/neuroaccess-horizonhacks
-cd neuroaccess-horizonhacks# Welcome to your Lovable project
-
-## Project info
-
-**URL**: https://lovable.dev/projects/e43c4c6e-044a-4834-b0a0-2915443e7770
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/e43c4c6e-044a-4834-b0a0-2915443e7770) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+cd neuroaccess-horizonhacks#
 ```
 
-**Edit a file directly in GitHub**
+🚀 NeuroAccess GitHub Repository Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e43c4c6e-044a-4834-b0a0-2915443e7770) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```
+neuroaccess-horizonhacks/
+│
+├── README.md                          # Main project documentation
+├── LICENSE                            # MIT License
+├── requirements.txt                   # Python dependencies
+├── setup.py                          # Installation script
+│
+├── frontend/                         # React/Flutter application
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── CognitiveDashboard.js
+│   │   │   ├── RealTimeEEGVisualization.js
+│   │   │   └── XAIInsightsPanel.js
+│   │   ├── pages/
+│   │   │   ├── TeacherDashboard.js
+│   │   │   ├── StudentView.js
+│   │   │   └── AdminPanel.js
+│   │   └── assets/
+│   │       └── demo-screenshots/
+│   ├── package.json
+│   └── public/
+│
+├── backend/                          # Python AI backend
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py                   # FastAPI server
+│   │   ├── models/
+│   │   │   ├── eeg_processor.py
+│   │   │   ├── cognitive_model.py
+│   │   │   └── adaptive_engine.py
+│   │   ├── utils/
+│   │   │   ├── signal_processing.py
+│   │   │   └── xai_explainer.py
+│   │   └── data/
+│   │       └── sample_eeg_data.csv
+│   ├── requirements.txt
+│   └── Dockerfile
+│
+├── mobile/                           # Flutter mobile app
+│   ├── lib/
+│   │   ├── screens/
+│   │   ├── widgets/
+│   │   └── services/
+│   ├── pubspec.yaml
+│   └── assets/
+│
+├── models/                           # Trained AI models
+│   ├── gamma_classifier.h5
+│   ├── attention_detector.pth
+│   └── model_metadata.json
+│
+├── research/                         # Research and validation
+│   ├── gamma_analysis.ipynb
+│   ├── validation_study.pdf
+│   └── performance_metrics.json
+│
+├── hardware/                         EEG integration
+│   ├── neurosky_integration.py
+│   ├── bluetooth_connector.py
+│   └── calibration_tools/
+│
+├── docs/                             # Documentation
+│   ├── API.md
+│   ├── DEPLOYMENT.md
+│   └── TROUBLESHOOTING.md
+│
+└── tests/                            # Test suite
+    ├── test_eeg_processing.py
+    ├── test_cognitive_model.py
+    └── test_integration.py
+```
