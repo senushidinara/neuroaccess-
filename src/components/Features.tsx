@@ -2,6 +2,14 @@ import { Card } from "@/components/ui/card";
 import { Brain, Activity, Sparkles, Globe, Shield, Zap } from "lucide-react";
 
 const Features = () => {
+  const colorMap: Record<string, { bg: string; text: string; border: string }> = {
+    primary: { bg: "hsl(var(--primary) / 0.1)", text: "hsl(var(--primary))", border: "hsl(var(--primary) / 0.5)" },
+    success: { bg: "hsl(var(--success) / 0.1)", text: "hsl(var(--success))", border: "hsl(var(--success) / 0.5)" },
+    secondary: { bg: "hsl(var(--secondary) / 0.1)", text: "hsl(var(--secondary))", border: "hsl(var(--secondary) / 0.5)" },
+    accent: { bg: "hsl(var(--accent) / 0.1)", text: "hsl(var(--accent))", border: "hsl(var(--accent) / 0.5)" },
+    warning: { bg: "hsl(var(--warning) / 0.1)", text: "hsl(var(--warning))", border: "hsl(var(--warning) / 0.5)" },
+  };
+
   const features = [
     {
       icon: Brain,
@@ -56,14 +64,18 @@ const Features = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => {
             const Icon = feature.icon;
+            const colors = colorMap[feature.color];
             return (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="p-6 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all group hover:shadow-lg hover:shadow-primary/10 animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`w-12 h-12 rounded-lg bg-${feature.color}/10 flex items-center justify-center mb-4 group-hover:bg-${feature.color}/20 transition-all`}>
-                  <Icon className={`w-6 h-6 text-${feature.color}`} />
+                <div
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-all group-hover:brightness-110"
+                  style={{ backgroundColor: colors.bg }}
+                >
+                  <Icon className="w-6 h-6" style={{ color: colors.text }} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
